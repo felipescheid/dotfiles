@@ -23,3 +23,17 @@ alias rm='rm -i -v'
 # ref: https://mitxela.com/projects/dotfiles_management
 
 alias dotfiles='git --git-dir=/Users/felipe/.dotfiles/.git --work-tree=/Users/felipe'
+alias dtig='GIT_DIR=/Users/felipe/.dotfiles/.git GIT_WORK_TREE=/Users/felipe tig'
+
+dot() {
+	if [[ "$#" -eq 0 ]]; then
+		(cd /Users/felipe
+		for i in $(dotfiles ls-files); do
+			echo -n "$(dotfiles -c color.status=always status $i -s | sed "s#$i##")"
+			echo -e "¬/$i¬\e[0;33m$(dotfiles -c color.ui=always log -1 --format="%s" -- $i)\e[0m"
+		done
+	) | column -t -s¬ 
+else
+dotfiles $*
+	fi
+}
