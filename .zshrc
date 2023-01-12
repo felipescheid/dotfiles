@@ -37,3 +37,8 @@ else
 dotfiles $*
 	fi
 }
+
+# utility function to convert UNIX timestamp in milliseconds to date/time
+unixToDate() {
+	date -r $(expr $* / 1000)
+}
