@@ -38,6 +38,9 @@ dotfiles $*
 	fi
 }
 
+export PATH=/Users/felipe/.nimble/bin:$PATH
+
+
 # utility function to convert UNIX timestamp in milliseconds to date/time
 unixToDate() {
 	date -r $(expr $* / 1000)
