@@ -4,9 +4,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export SATURN_DEV_DB_PORT=8006
-export EUROPA_DEV_DB_PORT=8061
-alias hasura='hasura --skip-update-check'
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
@@ -21,7 +18,6 @@ alias rm='rm -i -v'
 
 # create a dotfiles repo that can be accessed from any folder in the system
 # ref: https://mitxela.com/projects/dotfiles_management
-
 alias dotfiles='git --git-dir=/Users/felipe/.dotfiles/.git --work-tree=/Users/felipe'
 alias dtig='GIT_DIR=/Users/felipe/.dotfiles/.git GIT_WORK_TREE=/Users/felipe tig'
 
@@ -42,6 +38,11 @@ export PATH=/Users/felipe/.nimble/bin:$PATH
 
 
 # utility function to convert UNIX timestamp in milliseconds to date/time
-unixToDate() {
+when() {
 	date -r $(expr $* / 1000)
+}
+
+# create a directory and CD into it
+mkcd() {
+	mkdir -p "$1" && cd "$1"
 }

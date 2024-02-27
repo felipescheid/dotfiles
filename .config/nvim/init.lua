@@ -226,7 +226,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'vim' },
+  ensure_installed = { 'c', 'c_sharp', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'vim' },
 
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
@@ -343,7 +343,7 @@ end
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
   -- clangd = {},
-  -- gopls = {},
+  gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
