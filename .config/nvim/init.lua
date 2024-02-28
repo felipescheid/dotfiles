@@ -118,7 +118,7 @@ require("lazy").setup({
   'tpope/vim-rhubarb',
   'lewis6991/gitsigns.nvim',
 
-  'navarasu/onedark.nvim', -- Theme inspired by Atom
+  'rebelot/kanagawa.nvim', -- kanagawa theme
   'nvim-lualine/lualine.nvim', -- Fancier statusline
   -- Add indentation guides even on blank lines
   { 'lukas-reineke/indent-blankline.nvim', main = "ibl", opts = {} },
@@ -161,7 +161,7 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme onedark]]
+vim.cmd [[colorscheme kanagawa]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -192,7 +192,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('lualine').setup {
   options = {
     icons_enabled = false,
-    theme = 'onedark',
+    theme = 'kanagawa',
     component_separators = '|',
     section_separators = '',
   },
