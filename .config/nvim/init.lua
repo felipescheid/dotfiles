@@ -8,9 +8,6 @@ if not vim.loop.fs_stat(lazypath) then
     "https://github.com/folke/lazy.nvim.git",
     "--branch=stable",
     lazypath,
-    -- all the properties above are specified in the README for lazy.nvim
-    -- the property below I decided to add on my own accord - there's no need to clone the entire history
-    "--depth=1"
   })
 end
 vim.opt.rtp:prepend(lazypath)
@@ -119,7 +116,12 @@ require("lazy").setup({
   'lewis6991/gitsigns.nvim',
 
   'rebelot/kanagawa.nvim', -- kanagawa theme
-  'nvim-lualine/lualine.nvim', -- Fancier statusline
+   -- Fancier statusline
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+
+  },
   -- Add indentation guides even on blank lines
   { 'lukas-reineke/indent-blankline.nvim', main = "ibl", opts = {} },
   'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
@@ -162,7 +164,6 @@ vim.wo.signcolumn = 'yes'
 -- Set colorscheme
 vim.o.termguicolors = true
 vim.cmd [[colorscheme kanagawa]]
-
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
