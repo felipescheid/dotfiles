@@ -116,7 +116,9 @@ require("lazy").setup({
   'tpope/vim-rhubarb',
   'lewis6991/gitsigns.nvim',
 
-  'rebelot/kanagawa.nvim', -- kanagawa theme
+  -- kanagawa color scheme
+  'rebelot/kanagawa.nvim',
+
    -- Fancier statusline
   {
     'nvim-lualine/lualine.nvim',
@@ -125,8 +127,12 @@ require("lazy").setup({
   },
   -- Add indentation guides even on blank lines
   { 'lukas-reineke/indent-blankline.nvim', main = "ibl", opts = {} },
-  'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+
+  -- "gc" to comment visual regions/lines
+  'numToStr/Comment.nvim',
+
+  -- Detect tabstop and shiftwidth automatically
+  'tpope/vim-sleuth',
 
   -- Fuzzy Finder (files, lsp, etc)
   { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
@@ -224,7 +230,8 @@ require('lualine').setup {
 require('Comment').setup()
 
 -- Enable `lukas-reineke/indent-blankline.nvim`
-require("ibl").setup()
+require("ibl").setup();
+
 
 -- Gitsigns
 -- See `:help gitsigns.txt`
@@ -271,13 +278,13 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
--- Diagnostic keymaps
+-- [[ Diagnostic keymaps ]]
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
--- LSP settings.
+-- [[ LSP Settings ]]
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
