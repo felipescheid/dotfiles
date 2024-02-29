@@ -329,16 +329,22 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
+-- Setup neovim lua configuration
+require('neodev').setup()
+--
+-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+-- Setup mason so it can manage external tooling
+require('mason').setup()
+
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  -- clangd = {},
   gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
   tsserver = {},
   lua_ls = {
     Lua = {
@@ -350,15 +356,6 @@ local servers = {
     },
   },
 }
--- Setup neovim lua configuration
-require('neodev').setup()
---
--- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
--- Setup mason so it can manage external tooling
-require('mason').setup()
 
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
@@ -423,6 +420,10 @@ cmp.setup {
   },
 }
 
--- The line beneath this is called `modeline`. See `:help modeline`
+-- The last line of this file is called `modeline`. See `:help modeline`
+-- It is a form of setting vim options on a file level. Here is what we are doing:
+-- ts (tabstop) = number of spaces that a <Tab> in the file counts for
+-- sts (softtabstop) = number of spaces that when inserting a <Tab> while editing
+-- sw (shiftwidth) = number of spaces to use for each step of (auto)indent
 -- vim: ts=2 sts=2 sw=2 et
 
