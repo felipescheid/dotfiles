@@ -1,14 +1,14 @@
 -- Install lazy.nvim package manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  })
+vim.fn.system({
+  "git",
+  "clone",
+  "--filter=blob:none",
+  "https://github.com/folke/lazy.nvim.git",
+  "--branch=stable",
+  lazypath,
+})
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -200,6 +200,9 @@ vim.o.completeopt = 'menuone,noselect'
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
+-- using tilde is annoying for me on macOS, so I prefer to use leader + TC to toggle the case of a character
+vim.keymap.set('n', '<leader>tc', '~')
+
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -355,6 +358,7 @@ local servers = {
       }
     },
   },
+  csharp_ls = {}
 }
 
 -- Ensure the servers above are installed
