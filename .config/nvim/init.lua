@@ -424,10 +424,10 @@ cmp.setup {
   },
 }
 
--- The last line of this file is called `modeline`. See `:help modeline`
--- It is a form of setting vim options on a file level. Here is what we are doing:
--- ts (tabstop) = number of spaces that a <Tab> in the file counts for
--- sts (softtabstop) = number of spaces that when inserting a <Tab> while editing
--- sw (shiftwidth) = number of spaces to use for each step of (auto)indent
+-- The line below is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+-- Here is what we are doing:
+-- ts (tabstop) = number of spaces that a <Tab> in the file counts for
+-- sts (softtabstop) = number of spaces when inserting a <Tab> while editing
+-- sw (shiftwidth) = number of spaces to use for each step of (auto)indent
 
