@@ -1,4 +1,6 @@
 export PATH="$PATH:/opt/homebrew/bin/"
+export PATH="$PATH:$HOME/go/bin"
+export PATH=/Users/felipe/.nimble/bin:$PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -34,7 +36,6 @@ dotfiles $*
 	fi
 }
 
-export PATH=/Users/felipe/.nimble/bin:$PATH
 
 
 # utility function to convert UNIX timestamp in milliseconds to date/time
@@ -45,4 +46,14 @@ when() {
 # create a directory and CD into it
 mkcd() {
 	mkdir -p "$1" && cd "$1"
+}
+
+# edit nvim config
+nvc() {
+	nvim ~/.config/nvim/init.lua
+}
+
+# edit zsh config
+zshc() {
+	nvim ~/.zshrc
 }

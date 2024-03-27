@@ -44,7 +44,21 @@ require("lazy").setup({
       local configs = require("nvim-treesitter.configs")
 
       configs.setup({
-        ensure_installed = { 'c', 'c_sharp', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'vimdoc', 'vim' },
+        -- :TSInstallInfo to get a list of supported languages
+        ensure_installed = {
+          'c',
+          'c_sharp',
+          'go',
+          'javascript',
+          'json',
+          'lua',
+          'markdown',
+          'markdown_inline',
+          'templ',
+          'typescript',
+          'vim',
+          'vimdoc'
+        },
         highlight = { enable = true },
         sync_install = false,
         indent = { enable = true, disable = { 'python' } },
@@ -193,6 +207,9 @@ vim.o.termguicolors = true
 vim.cmd [[colorscheme kanagawa]]
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
+
+-- enable .templ filetype so it can be picked up by LSPs (https://templ.guide/commands-and-tools/ide-support#neovim--050)
+vim.filetype.add({ extension = { templ = "templ" } })
 
 -- [[ Basic Keymaps ]]
 
@@ -348,6 +365,7 @@ require('mason').setup()
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
   gopls = {},
+  templ = {},
   tsserver = {},
   lua_ls = {
     Lua = {
@@ -358,7 +376,7 @@ local servers = {
       }
     },
   },
-  csharp_ls = {}
+  csharp_ls = {},
 }
 
 -- Ensure the servers above are installed
