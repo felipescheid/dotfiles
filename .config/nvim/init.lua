@@ -48,6 +48,7 @@ require("lazy").setup({
         ensure_installed = {
           'c',
           'c_sharp',
+          'elixir',
           'go',
           'javascript',
           'json',
@@ -364,6 +365,8 @@ require('mason').setup()
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
+  csharp_ls = {},
+  -- elixirls={},
   gopls = {},
   templ = {},
   tsserver = {},
@@ -376,7 +379,6 @@ local servers = {
       }
     },
   },
-  csharp_ls = {},
 }
 
 -- Ensure the servers above are installed
