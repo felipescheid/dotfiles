@@ -1,15 +1,23 @@
 export PATH="$PATH:/opt/homebrew/bin/"
-export PATH="$PATH:$HOME/go/bin"
 export PATH=/Users/felipe/.nimble/bin:$PATH
 
+# Postgres config
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+# Golang config
+export PATH="$PATH:$HOME/go/bin"
+
+# Node.js version manager config
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Python version manager config
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+# Fuzzy finder config
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # confirm before executing irreversible actions
