@@ -20,6 +20,8 @@ eval "$(pyenv init -)"
 # Fuzzy finder config
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+alias ll='ls -alF'
+
 # confirm before executing irreversible actions
 # to execute raw command (no alias), add \ before command name
 alias cp='cp -i -v'
@@ -65,3 +67,6 @@ nvc() {
 zshc() {
 	nvim ~/.zshrc
 }
+
+# configure universal ctags (macos uses default non-maintained ctags)
+alias ctags='/opt/homebrew/bin/ctags'
