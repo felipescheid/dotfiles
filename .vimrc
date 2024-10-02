@@ -1,3 +1,6 @@
+" i'm drawing heavily from
+" https://github.com/rwxrob/dot/blob/main/vim/vimrc
+" but also adding my own customizations
 " /usr/share/vim/vim90
 source $VIMRUNTIME/defaults.vim
 
@@ -107,4 +110,5 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   if (has("termguicolors"))
     set termguicolors
   endif
+  let g:gruvbox_contrast_dark="hard"
 endif
