@@ -9,6 +9,9 @@ filetype plugin indent on
 
 " ##################### GENERAL SETTINGS ###############################
 
+" update buffer if file has been changed outside of vim
+set autoread
+
 " might be riskier, but git should be enough
 set nobackup
 set noswapfile
