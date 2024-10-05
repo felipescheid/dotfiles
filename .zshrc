@@ -81,6 +81,11 @@ mkcd() {
 	mkdir -p "$1" && cd "$1"
 }
 
+# edit vim config
+virc() {
+	vi ~/.vimrc
+}
+
 # edit nvim config
 nvc() {
 	nvim ~/.config/nvim/init.lua
