@@ -107,6 +107,7 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   call plug#begin('~/.local/share/vim/plugins')
   Plug 'morhetz/gruvbox'
   Plug 'prettier/vim-prettier' , { 'do': 'yarn install --frozen-lockfile --production' }
+  Plug 'elixir-editors/vim-elixir'
   call plug#end()
 
   " prettier config
@@ -114,7 +115,7 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   " for prettier supported file extensions
   let g:prettier#autoformat=1 
   let g:prettier#autoformat_require_pragma=0
-  
+
   " gruvbox config
   autocmd vimenter * ++nested colorscheme gruvbox
   if (has("termguicolors"))
