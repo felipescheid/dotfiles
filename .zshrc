@@ -67,6 +67,8 @@ COLOR_GIT=$'%F{39}'
 setopt PROMPT_SUBST
 export PROMPT='${COLOR_USR}%n ${COLOR_DIR}%~ ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF} $ '
 
+# make input text green
+zle_highlight=(default:fg=green)
 
 
 # utility function to convert UNIX timestamp in milliseconds to date/time
