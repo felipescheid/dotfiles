@@ -87,9 +87,9 @@ parse_git_branch() {
 # see more details here
 # https://github.com/AvinashReddy3108/Gogh4Termux/blob/master/ic-orange-ppl.properties
 COLOR_DEF=$'%f'
-COLOR_USR=$'%F{#F79500}'
+COLOR_USR=$'%F{#FC5E00}'
 COLOR_DIR=$'%F{#FFE36E}'
-COLOR_GIT=$'%F{#FC5E00}'
+COLOR_GIT=$'%F{#F79500}'
 setopt PROMPT_SUBST
 export PROMPT='${COLOR_USR}%n ${COLOR_DIR}%~ ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF} %F{#F6FF40}> '
 
