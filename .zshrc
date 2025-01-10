@@ -83,15 +83,18 @@ parse_git_branch() {
   git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
 }
 
+# Colors for IC-ORANGE-PPL theme for ghostty
+# see more details here
+# https://github.com/AvinashReddy3108/Gogh4Termux/blob/master/ic-orange-ppl.properties
 COLOR_DEF=$'%f'
-COLOR_USR=$'%F{243}'
-COLOR_DIR=$'%F{197}'
-COLOR_GIT=$'%F{39}'
+COLOR_USR=$'%F{#F79500}'
+COLOR_DIR=$'%F{#FFE36E}'
+COLOR_GIT=$'%F{#FC5E00}'
 setopt PROMPT_SUBST
-export PROMPT='${COLOR_USR}%n ${COLOR_DIR}%~ ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF} %F{green}$ '
+export PROMPT='${COLOR_USR}%n ${COLOR_DIR}%~ ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF} %F{#F6FF40}> '
 
-# make input text green
-zle_highlight=(default:fg=green)
+# prompt color
+zle_highlight=(default:fg=#F6FF40)
 
 # ======================================================================
 #                            HELPER FUNCTIONS
