@@ -1,4 +1,9 @@
+# ======================================================================
+#                                  PATH
+# ======================================================================
+
 export PATH="$PATH:/opt/homebrew/bin/"
+
 export PATH=/Users/felipe/.nimble/bin:$PATH
 
 # Postgres config
@@ -6,6 +11,13 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
 # Golang config
 export PATH="$PATH:$HOME/go/bin"
+
+# Ghostty config path
+export XDG_HOME_CONFIG="$HOME/.config"
+
+# ======================================================================
+#                           APPLICATION CONFIG
+# ======================================================================
 
 # Node.js version manager config
 export NVM_DIR="$HOME/.nvm"
@@ -22,7 +34,14 @@ eval "$(pyenv init -)"
 ## use ripgrep as default search tool for fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/" --glob "!_build/"'
 
-alias ll='ls -alF'
+# ======================================================================
+#                                ALIASES
+# ======================================================================
+
+# configure universal ctags (macos uses default non-maintained ctags)
+alias ctags='/opt/homebrew/bin/ctags'
+
+alias ll='ls -alhF'
 
 # confirm before executing irreversible actions
 # to execute raw command (no alias), add \ before command name
@@ -55,6 +74,10 @@ dotfiles $*
 	fi
 }
 
+# ======================================================================
+#                         DISPLAY CONFIGURATION
+# ======================================================================
+
 # show git branch info in terminal
 parse_git_branch() {
   git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
@@ -70,6 +93,9 @@ export PROMPT='${COLOR_USR}%n ${COLOR_DIR}%~ ${COLOR_GIT}$(parse_git_branch)${CO
 # make input text green
 zle_highlight=(default:fg=green)
 
+# ======================================================================
+#                            HELPER FUNCTIONS
+# ======================================================================
 
 # utility function to convert UNIX timestamp in milliseconds to date/time
 when() {
@@ -96,5 +122,3 @@ zshc() {
 	nvim ~/.zshrc
 }
 
-# configure universal ctags (macos uses default non-maintained ctags)
-alias ctags='/opt/homebrew/bin/ctags'
