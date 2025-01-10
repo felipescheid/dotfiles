@@ -9,6 +9,9 @@ filetype plugin indent on
 
 " ##################### GENERAL SETTINGS ###############################
 
+" allow use of aliases for shell commands, see :h shell
+" set shellcmdflag=-ic
+
 " update buffer if file has been changed outside of vim
 set autoread
 
@@ -86,6 +89,20 @@ inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 inoremap <C-d> <Del>
 
+"########################### LEADER SHORTCUTS ###########################
+
+let mapleader = ","
+
+" create sub-sections
+
+" main section
+nnoremap <Leader>ms :InsertSectionDivider<CR> 
+" subsection
+nnoremap <Leader>ss :InsertSubSectionDivider<CR>
+
+" quickly escape from insert mode
+imap jj <ESC>
+
 " ################### FILE BROWSING #########################
 
 let g:netrw_browse_split=4 " open in prior window
@@ -98,6 +115,15 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 set background=dark
 colorscheme desert
 
+" make cursor more visible
+if &term =~ "xterm\\|rxvt"
+    " Use an orange cursor in insert mode
+    let &t_SI = "\<Esc>]12;orange\x7"
+    " Use a red cursor otherwise
+    let &t_EI = "\<Esc>]12;red\x7"
+endif
+
+
 " ################### PLUGINS ###############################
 
 " only load plugins if Plug is detected
@@ -108,6 +134,8 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   Plug 'morhetz/gruvbox'
   Plug 'prettier/vim-prettier' , { 'do': 'yarn install --frozen-lockfile --production' }
   Plug 'elixir-editors/vim-elixir'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
   call plug#end()
 
   " prettier config
