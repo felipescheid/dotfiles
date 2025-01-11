@@ -20,6 +20,14 @@
 (global-set-key (kbd "C-c m s") 'magit-status)
 (global-set-key (kbd "C-c m l") 'magit-log)
 
+;;; paredit
+(defun turn-on-paredit()
+  (interactive)
+  (paredit-mode 1))
+
+(add-hook 'emacs-lisp-mode-hook 'turn-on-paredit)
+
+
 ; end of packages
 
 
